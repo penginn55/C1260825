@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import glob
+
+files = glob.glob("results/*.csv")
+
+for file in files:
+    df = pd.read_csv(file)
+
+    plt.plot(
+        df["x"],
+        df["y"],
+        label=file
+    )
+
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.title("Results")
+plt.legend()
+plt.grid(True)
+plt.show()
